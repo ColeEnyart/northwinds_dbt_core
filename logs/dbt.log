@@ -1,0 +1,219 @@
+[0m19:28:14.828206 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E418121B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E408CA780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E41812390>]}
+
+
+============================== 19:28:14.832206 | c44165bd-bcaa-44f3-ad88-dd51595fa71e ==============================
+[0m19:28:14.832206 [info ] [MainThread]: Running with dbt=1.7.6
+[0m19:28:14.834207 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\lechro\\.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt init northwinds_dbt', 'send_anonymous_usage_stats': 'True'}
+[0m19:28:14.835207 [error] [MainThread]: Encountered an error:
+[ConfigFolderDirectory]: Unable to parse dict {'dir': WindowsPath('C:/Users/lechro/.dbt')}
+[0m19:28:14.841206 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\google\protobuf\json_format.py", line 608, in _ConvertFieldValuePair
+    _ConvertScalarFieldValue(value, field,
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\google\protobuf\json_format.py", line 779, in _ConvertScalarFieldValue
+    if _UNPAIRED_SURROGATE_PATTERN.search(value):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'WindowsPath'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\events\base_types.py", line 72, in __init__
+    self.pb_msg = ParseDict(kwargs, msg_cls())
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\google\protobuf\json_format.py", line 446, in ParseDict
+    parser.ConvertMessage(js_dict, message, '')
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\google\protobuf\json_format.py", line 487, in ConvertMessage
+    self._ConvertFieldValuePair(value, message, path)
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\google\protobuf\json_format.py", line 622, in _ConvertFieldValuePair
+    raise ParseError(
+google.protobuf.json_format.ParseError: Failed to parse dir field: expected string or bytes-like object, got 'WindowsPath'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\cli\requires.py", line 91, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\cli\requires.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\cli\main.py", line 515, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\task\init.py", line 298, in run
+    self.create_profiles_dir(profiles_dir)
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\task\init.py", line 70, in create_profiles_dir
+    fire_event(ConfigFolderDirectory(dir=profiles_dir))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\events\base_types.py", line 81, in __init__
+    raise Exception(error_msg)
+Exception: [ConfigFolderDirectory]: Unable to parse dict {'dir': WindowsPath('C:/Users/lechro/.dbt')}
+
+[0m19:28:14.848208 [debug] [MainThread]: Command `dbt init` failed at 19:28:14.848208 after 0.07 seconds
+[0m19:28:14.849210 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E3A821BE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E41356900>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023E4147D4C0>]}
+[0m19:28:14.850209 [debug] [MainThread]: Flushing usage events
+[0m19:28:28.774223 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016B422FE690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016B422FF8C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016B422FE4E0>]}
+
+
+============================== 19:28:28.778219 | e6b500c7-8d44-46a6-b7c0-36120e14e34a ==============================
+[0m19:28:28.778219 [info ] [MainThread]: Running with dbt=1.7.6
+[0m19:28:28.779218 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\lechro\\.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt init northwinds-dbt', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m19:28:28.781219 [error] [MainThread]: Encountered an error:
+[ConfigFolderDirectory]: Unable to parse dict {'dir': WindowsPath('C:/Users/lechro/.dbt')}
+[0m19:28:28.788219 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\google\protobuf\json_format.py", line 608, in _ConvertFieldValuePair
+    _ConvertScalarFieldValue(value, field,
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\google\protobuf\json_format.py", line 779, in _ConvertScalarFieldValue
+    if _UNPAIRED_SURROGATE_PATTERN.search(value):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected string or bytes-like object, got 'WindowsPath'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\events\base_types.py", line 72, in __init__
+    self.pb_msg = ParseDict(kwargs, msg_cls())
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\google\protobuf\json_format.py", line 446, in ParseDict
+    parser.ConvertMessage(js_dict, message, '')
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\google\protobuf\json_format.py", line 487, in ConvertMessage
+    self._ConvertFieldValuePair(value, message, path)
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\google\protobuf\json_format.py", line 622, in _ConvertFieldValuePair
+    raise ParseError(
+google.protobuf.json_format.ParseError: Failed to parse dir field: expected string or bytes-like object, got 'WindowsPath'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\cli\requires.py", line 91, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\cli\requires.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\cli\main.py", line 515, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\task\init.py", line 298, in run
+    self.create_profiles_dir(profiles_dir)
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\task\init.py", line 70, in create_profiles_dir
+    fire_event(ConfigFolderDirectory(dir=profiles_dir))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\events\base_types.py", line 81, in __init__
+    raise Exception(error_msg)
+Exception: [ConfigFolderDirectory]: Unable to parse dict {'dir': WindowsPath('C:/Users/lechro/.dbt')}
+
+[0m19:28:28.797224 [debug] [MainThread]: Command `dbt init` failed at 19:28:28.797224 after 0.06 seconds
+[0m19:28:28.799223 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016B41D91970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016B421A0EF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016B41EF0170>]}
+[0m19:28:28.800223 [debug] [MainThread]: Flushing usage events
+[0m19:31:00.044961 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000214FDA4E5A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000214FC7F5100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000214FDA4E810>]}
+
+
+============================== 19:31:00.050954 | 92ee6fb7-93c3-4a7e-835b-110d932a6216 ==============================
+[0m19:31:00.050954 [info ] [MainThread]: Running with dbt=1.7.6
+[0m19:31:00.051956 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': 'C:\\Users\\lechro\\.dbt', 'log_path': 'logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt init northwinds_dbt', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m19:31:00.053952 [debug] [MainThread]: Starter project path: C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\include\starter_project
+[0m19:31:00.079951 [info ] [MainThread]: 
+Your new dbt project "northwinds_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:31:00.081956 [info ] [MainThread]: Setting up your profile.
+[0m19:32:26.755965 [error] [MainThread]: Encountered an error:
+
+[0m19:32:26.778969 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\cli\requires.py", line 91, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\cli\requires.py", line 76, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\cli\main.py", line 515, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\task\init.py", line 344, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\task\init.py", line 263, in setup_profile
+    adapter = self.ask_for_adapter_choice()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\dbt\task\init.py", line 244, in ask_for_adapter_choice
+    numeric_choice = click.prompt(prompt_msg, type=click.INT)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lechro\.conda\envs\jigsaw\Lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m19:32:26.784967 [debug] [MainThread]: Command `dbt init` failed at 19:32:26.784967 after 86.79 seconds
+[0m19:32:26.785964 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000214FD4AE6C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000214FD66D730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000214FCAC6840>]}
+[0m19:32:26.786964 [debug] [MainThread]: Flushing usage events
+[0m18:32:28.604377 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224651A20C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224651A25A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224651A0BC0>]}
+
+
+============================== 18:32:28.609375 | 55224ab5-128b-4098-8ee3-527d420c089a ==============================
+[0m18:32:28.609375 [info ] [MainThread]: Running with dbt=1.7.6
+[0m18:32:28.610377 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\lechro\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m18:32:28.611376 [info ] [MainThread]: dbt version: 1.7.6
+[0m18:32:28.612377 [info ] [MainThread]: python version: 3.12.0
+[0m18:32:28.613749 [info ] [MainThread]: python path: C:\Users\lechro\.conda\envs\jigsaw\python.exe
+[0m18:32:28.614379 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m18:32:28.824376 [info ] [MainThread]: Using profiles dir at C:\Users\lechro\.dbt
+[0m18:32:28.825377 [info ] [MainThread]: Using profiles.yml file at C:\Users\lechro\.dbt\profiles.yml
+[0m18:32:28.826376 [info ] [MainThread]: Using dbt_project.yml file at A:\jigsaw\dbt-core-setup-northwinds\codebase\dbt_project.yml
+[0m18:32:28.828380 [info ] [MainThread]: adapter type: postgres
+[0m18:32:28.829379 [info ] [MainThread]: adapter version: 1.7.6
+[0m18:32:28.830380 [info ] [MainThread]: Configuration:
+[0m18:32:28.832379 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m18:32:28.835380 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m18:32:28.837379 [info ] [MainThread]: Required dependencies:
+[0m18:32:28.839379 [debug] [MainThread]: Executing "git --help"
+[0m18:32:28.871398 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--super-prefix=<path>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m18:32:28.874397 [debug] [MainThread]: STDERR: "b''"
+[0m18:32:28.875397 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m18:32:28.878400 [info ] [MainThread]: Connection:
+[0m18:32:28.881400 [info ] [MainThread]:   host: localhost
+[0m18:32:28.883405 [info ] [MainThread]:   port: 5432
+[0m18:32:28.886400 [info ] [MainThread]:   user: postgres
+[0m18:32:28.888400 [info ] [MainThread]:   database: northwinds
+[0m18:32:28.891402 [info ] [MainThread]:   schema: dev
+[0m18:32:28.893398 [info ] [MainThread]:   connect_timeout: 30
+[0m18:32:28.894397 [info ] [MainThread]:   role: None
+[0m18:32:28.896396 [info ] [MainThread]:   search_path: None
+[0m18:32:28.897398 [info ] [MainThread]:   keepalives_idle: 0
+[0m18:32:28.899398 [info ] [MainThread]:   sslmode: None
+[0m18:32:28.901399 [info ] [MainThread]:   sslcert: None
+[0m18:32:28.902399 [info ] [MainThread]:   sslkey: None
+[0m18:32:28.904398 [info ] [MainThread]:   sslrootcert: None
+[0m18:32:28.906398 [info ] [MainThread]:   application_name: dbt
+[0m18:32:28.908398 [info ] [MainThread]:   retries: 1
+[0m18:32:28.909398 [info ] [MainThread]: Registered adapter: postgres=1.7.6
+[0m18:32:28.910396 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m18:32:28.911398 [debug] [MainThread]: Using postgres connection "debug"
+[0m18:32:28.912396 [debug] [MainThread]: On debug: select 1 as id
+[0m18:32:28.913395 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m18:32:28.961395 [debug] [MainThread]: SQL status: SELECT 1 in 0.0 seconds
+[0m18:32:28.962397 [debug] [MainThread]: On debug: Close
+[0m18:32:28.963397 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m18:32:28.965397 [info ] [MainThread]: [31m1 check failed:[0m
+[0m18:32:28.966398 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <A:\jigsaw\dbt-core-setup-northwinds\codebase\dbt_project.yml> not found
+
+[0m18:32:28.968395 [debug] [MainThread]: Command `dbt debug` failed at 18:32:28.968395 after 0.48 seconds
+[0m18:32:28.969395 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m18:32:28.969395 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002246504DEB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022464D1F6E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000224651D8C50>]}
+[0m18:32:28.970395 [debug] [MainThread]: Flushing usage events
