@@ -1,0 +1,10 @@
+version: 2
+sources:
+  - name: postgres
+    database: northwinds
+    schema: public
+    tables:
+      - name: categories
+      - name: customers
+      - name: shippers
+      - name: suppliers
