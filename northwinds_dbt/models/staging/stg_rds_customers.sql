@@ -1,5 +1,5 @@
 with source as (
-    select * from public.customers
+    select * from {{ source('postgres', 'customers') }}
 ),
 
 renamed as (

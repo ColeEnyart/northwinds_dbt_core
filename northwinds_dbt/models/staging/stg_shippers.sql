@@ -1,1 +1,1 @@
-select shipper_id, company_name from shippers
+select shipper_id, company_name from {{ source('postgres', 'shippers') }}

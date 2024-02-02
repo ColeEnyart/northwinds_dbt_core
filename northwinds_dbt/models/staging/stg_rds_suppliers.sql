@@ -1,5 +1,5 @@
 with source as (
-    SELECT * FROM public.suppliers
+    SELECT * FROM {{ source('postgres', 'suppliers') }}
 ),
 
 renamed as (
