@@ -1,12 +1,31 @@
-with source as (
-    select * from {{ source('postgres', 'customers') }}
+WITH customers as (
+  SELECT * FROM {{ source('postgres', 'customers') }} 
+), 
+companies as (
+  SELECT * FROM {{ ref('stg_rds_companies') }}
 ),
-
 renamed as (
-    select customer_id, country,
-    split_part(contact_name, ' ', 1) as first_name,
-    split_part(contact_name, ' ', 2) as last_name
-    from source
+    SELECT 
+    concat('rds-', customer_id) as customer_id, 
+    SPLIT_PART(contact_name, ' ', 1) as first_name,
+    SPLIT_PART(contact_name, ' ', -1) as last_name,
+    REPLACE(TRANSLATE(phone, '(,),-,.', ''), ' ', '') as updated_phone,
+    company_id
+    FROM customers 
+    JOIN companies ON companies.company_name = customers.company_name 
+), final as 
+ (SELECT
+   customer_id,
+   first_name,
+   last_name,
+   CASE WHEN LENGTH(updated_phone) = 10 THEN
+       '(' || SUBSTRING(updated_phone, 1, 3) || ') ' || 
+       SUBSTRING(updated_phone, 4, 3) || '-' ||
+       SUBSTRING(updated_phone, 7, 4) 
+       END as phone,
+   company_id
+  FROM renamed
 )
+SELECT * FROM final
 
-select * from renamed
+-- psql -d northwinds -c "select * from dev.stg_rds_customers limit 3"
