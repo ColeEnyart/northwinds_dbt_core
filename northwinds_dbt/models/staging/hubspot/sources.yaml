@@ -1,6 +1,6 @@
 version: 2
 sources:
-  - name: postgres
+  - name: hubspot
     database: northwinds
     schema: dev
     tables:
