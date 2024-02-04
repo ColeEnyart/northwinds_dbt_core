@@ -1,5 +1,5 @@
 WITH contacts as (
-  SELECT * FROM {{ source('postgres', 'northwinds_hubspot') }} 
+  SELECT * FROM {{ source('hubspot', 'northwinds_hubspot') }} 
 ),
 
 companies as (

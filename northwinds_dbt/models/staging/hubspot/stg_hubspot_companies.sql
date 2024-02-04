@@ -1,5 +1,5 @@
 WITH source as (
-  SELECT * FROM {{ source('postgres', 'northwinds_hubspot') }} 
+  SELECT * FROM {{ source('hubspot', 'northwinds_hubspot') }} 
 ),
 
 renamed as (
