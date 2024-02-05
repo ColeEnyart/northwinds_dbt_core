@@ -43,6 +43,8 @@ final as (
     GROUP BY name
 )
 
-SELECT * FROM final
+select {{ dbt_utils.generate_surrogate_key(['name']) }} as company_pk,
+hubspot_company_id, rds_company_id,
+name, address, city, postal_code, country from final
 
 -- psql -d northwinds -c "select * from dev.int_companies limit 3"

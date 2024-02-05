@@ -30,7 +30,7 @@ merged_contacts as (
     FROM customers
 ),
 
-renamed as (
+final as (
     SELECT
     max(hubspot_contact_id) as hubspot_contact_id, 
     max(rds_contact_id) as rds_contact_id,
@@ -43,6 +43,8 @@ renamed as (
     GROUP BY first_name, last_name
 )
 
-SELECT * FROM renamed
+select {{ dbt_utils.generate_surrogate_key(['first_name', 'last_name', 'phone']) }} as contact_pk,
+hubspot_contact_id, rds_contact_id,
+first_name, last_name, phone, hubspot_company_id, rds_company_id from final
 
 -- psql -d northwinds -c "select * from dev.int_contacts order by last_name limit 20"
