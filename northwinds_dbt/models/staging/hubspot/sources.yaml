@@ -2,6 +2,6 @@ version: 2
 sources:
   - name: hubspot
     database: northwinds
-    schema: dev
+    schema: dev_seed_data
     tables:
       - name: northwinds_hubspot
