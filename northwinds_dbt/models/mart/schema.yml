@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: fact_orders
+    description: fact table orders
+    columns:
+      - name: order_pk
+        tests:
+          - unique
+          - not_null
+      - name: contact_pk
+        tests:
+          - relationships:
+              to: ref('mart_contacts_dim')
+              field: contact_pk
+  - name: mart_companies_dim
+    description: dimension companies
+    columns:
+      - name: company_pk
+        tests:
+          - unique
+          - not_null
+  - name: mart_contacts_dim
+    description: dimension contacts
+    columns:
+      - name: contact_pk
+        tests:
+          - unique
+          - not_null
+      - name: company_pk
+        tests:
+          - relationships:
+              to: ref('mart_companies_dim')
+              field: company_pk

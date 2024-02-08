@@ -13,3 +13,21 @@
     {% endif %}
     select {{ num }} as number,  '{{ value }}' as output {% if not loop.last %} union all {% endif %}
 {% endfor %}
+
+
+SELECT
+order_date as order_day,
+SUM(quantity*unit_price) as total_revenue
+FROM dev.fact_orders
+GROUP BY order_day
+ORDER BY order_day
+LIMIT 10
+
+psql -d northwinds -c "
+SELECT
+order_date as order_day,
+SUM(quantity*unit_price) as total_revenue
+FROM dev.fact_orders
+GROUP BY order_day
+ORDER BY order_day
+LIMIT 10"
