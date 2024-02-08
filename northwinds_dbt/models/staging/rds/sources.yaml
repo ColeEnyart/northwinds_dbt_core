@@ -8,3 +8,16 @@ sources:
       - name: customers
       - name: shippers
       - name: suppliers
+      - name: orders
+        columns:
+            - name: order_id
+              description: Primary key of the orders table
+              tests:
+                - unique
+                - not_null
+      - name: order_details
+        columns:
+        - name: order_id
+          description: Foreign key referencing orders table
+          tests:
+            - not_null
